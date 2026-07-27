@@ -2,7 +2,7 @@
 
 This is a small reimplementation of **FineNet** (Tsai et al., RecSys '19), a CNN+GRU model that
 tries to catch abnormal stock movements before they happen. Instead of the 300 companies used in
-the original paper, I ran it on a single stock — **ACB (Asia Commercial Bank)** — using its daily
+the original paper, I ran it on a single stock  **ACB (Asia Commercial Bank)** ,using its daily
 price history from 2017 onward.
 
 The core idea, taken straight from the paper: for a given week, compute the ROI compared to its
@@ -14,7 +14,7 @@ you'd get a heads-up before the stock does something extreme.
 
 It's a multi-branch CNN feeding into a BiGRU:
 
-- Several Conv1D branches run in parallel over the price window — some with dilation, so the model
+- Several Conv1D branches run in parallel over the price window  some with dilation, so the model
   can pick up both short-term and longer-term patterns without stacking a ton of layers.
 - The branches get concatenated and passed through a Bidirectional GRU to learn the sequential part.
 - Two output heads at the end: one regresses the next value, the other classifies whether it's an
@@ -53,7 +53,7 @@ different setup), but the pattern — FineNet > GRU/DRNN > ARIMA, especially as 
 - The "voting system" cell near the end of the notebook (combining predictions from all four models)
   is currently running on **randomly generated fake data**, not the actual model outputs from
   earlier in the notebook. It's there to show how the voting logic works, but the numbers it prints
-  don't mean anything yet — would need to be wired up to the real predictions.
+  don't mean anything yet , would need to be wired up to the real predictions.
 - The original ARIMA loop feeds its own forecasts back into the input history, which can blow up and
   fail to converge after enough steps. I reworked it to do a proper walk-forward using real past
   prices instead — that's what the numbers above reflect.
