@@ -43,10 +43,10 @@ Ran everything on ACB's test split, three k values:
 | DRNN | 0.48 | 0.56 | 0.59 | 0.61 | 0.31 | 0.12 |
 | **FineNet** | 0.54 | 0.50 | **0.67** | **0.90** | **0.94** | **0.56** |
 
-The gap is mostly in recall — FineNet catches way more of the actual anomalies than the other three,
+The gap is mostly in recall , FineNet catches way more of the actual anomalies than the other three,
 sometimes 2-3x more, without giving up much on precision. That lines up with what the paper claims.
 Makes sense the numbers aren't identical to the paper's (single stock vs. 300 companies is a very
-different setup), but the pattern — FineNet > GRU/DRNN > ARIMA, especially as k grows — holds up.
+different setup), but the pattern . FineNet > GRU/DRNN > ARIMA, especially as k grows holds up.
 
 ## Heads up on a couple of rough edges
 
